@@ -22,7 +22,7 @@ class home(HTTPMethodView):
 
     async def post(self, request):
         data = request.json
-        short_link = 'shortyme.herokuapp.com/'+generator()
+        short_link = 'your.domain/'+generator()
         if search_by_original_link(data['link']) == data['link']:
             return json({'status' : 200,
                          'message' : 'este link ja esta encurtado '})
