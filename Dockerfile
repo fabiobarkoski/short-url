@@ -1,7 +1,8 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9-slim-buster
+FROM python:3.9.6-slim-buster
 WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+RUN pip install uvicorn
 COPY . .
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0", "--worker-class", "sanic.worker.GunicornWorker"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
