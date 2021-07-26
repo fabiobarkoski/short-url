@@ -1,4 +1,3 @@
-import random
 from pony.orm import *
 
 db = Database()
@@ -7,7 +6,7 @@ class Short(db.Entity):
     original_link = Required(str)
     short_link = Required(str)
 
-db.bind(provider='postgres', user='bzclzhideovtes', password='ef5e43b3e89d0bf8871d841a86be6b8bcf63b86f4e47bd3a31f444f15106d851', host='ec2-23-21-4-7.compute-1.amazonaws.com', database='df26bllk2v7ho6')
+db.bind(provider='postgres', user='pfmehycgspdebl', password='fbb11ba8ac40cb21bf77b4c789a589cb62dec4c0062576bf4e25edf62e4871f9', host='ec2-52-72-125-94.compute-1.amazonaws.com', database='d64j28tkduodc2')
 
 
 db.generate_mapping(create_tables=True)
