@@ -41,7 +41,7 @@ class home(HTTPMethodView):
 
             return json({'status_code' : 200,
                          'status' : 'success',
-                         'Link' : 'localhost:8000/'+short_link})
+                         'Link' : 'your.domain/'+short_link})
 
 @app.get('/<link:str>')
 async def redirect_to(request, link):
