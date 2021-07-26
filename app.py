@@ -1,3 +1,4 @@
+import os
 from sanic import Sanic
 from sanic.views import HTTPMethodView
 from sanic.response import  json, redirect, html
@@ -40,7 +41,7 @@ class home(HTTPMethodView):
 
             return json({'status_code' : 200,
                          'status' : 'success',
-                         'Link' : 'your.domain/'+short_link})
+                         'Link' : 'localhost:8000/'+short_link})
 
 @app.get('/<link:str>')
 async def redirect_to(request, link):
@@ -55,5 +56,6 @@ async def redirect_view(request):
 app.add_route(home.as_view(), '/')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port) 
     

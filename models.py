@@ -7,7 +7,7 @@ class Short(db.Entity):
     original_link = Required(str)
     short_link = Required(str)
 
-db.bind(provider='', user='', password='', host='', database='')
+db.bind(provider='postgres', user='ognzegvs', password='mO5j962bYM6MawC8MdObpDjaIV1X4QjX', host='motty.db.elephantsql.com', database='ognzegvs')
 
 
 db.generate_mapping(create_tables=True)
@@ -15,7 +15,7 @@ set_sql_debug(True)
 
 @db_session
 def save(original_link, short_link):
-    Short(original_link=original_link, short_link='your.domain/'+short_link)
+    Short(original_link=original_link, short_link='localhost:8000/'+short_link)
 
 @db_session
 def search_by_original_link(link):
