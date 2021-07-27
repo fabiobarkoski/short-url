@@ -6,7 +6,7 @@ API encurtadora de URL's
 - [Motivação](#motivacao)
 - [A API](#a-api)
 - [O Banco de Dados](#o-banco-de-dados)
-- [Instalando Dependências e Executando o Projeto](#Instalando-dependencias-e-executando-o-projeto)
+- [Instalando Dependências e Executando o Projeto](#instalando-dependencias-e-executando-o-projeto)
 - [Docker](#docker)
 - [Heroku](#heroku)
 - [A Fazer](#a-fazer)
@@ -40,13 +40,27 @@ $ uvicorn app:app
 ```
 
 ### Observações
-Lembrando que o projeto possui o Uvicorn para sua implementação em ASGI e o Gunicorn para sua WSGI, ambos para o ambiente de produção. Por o Sanic utilizar-se dos conceitos Asynchronous o recomendado é executar através do Uvicorn.
+Lembrando que o projeto possui o Uvicorn para sua implementação em ASGI e o Gunicorn para sua WSGI.
+Pelo Sanic utilizar-se dos conceitos Asynchronous o recomendado é executar através do Uvicorn(como demonstrado acima). Caso queira executar com o Gunicorn, o Sanic recomenda a utilização do seguinte comando, porém ele avisa que será perdido bastante beneficio de desempenho
+Comando do Sanic pelo Gunicorn:
+```
+$ gunicorn myapp:app --bind 0.0.0.0:1337 --worker-class sanic.worker.GunicornWorker
+```
+Assim como o Sanic, o Uvicorn também possui seu próprio "work class" para a utilização, dito como tendo todos o beneficios do Uvicorn.
+O comando para executa-lo é:
+```
+$ gunicorn example:app -w 4 -k uvicorn.workers.UvicornWorker
+```
 
 ## Docker
 O Projeto possui um arquivo Dockerfile para a criação de sua imagem no Docker. Para criar a imagem basta digitar o comando no Terminal:
-  $ docker build -t short-url .
+```
+$ docker build -t short-url .
+```
 E para executar a imagem:
-  $ docker run -p 8000:8000 short-url  
+```
+$ docker run -p 8000:8000 short-url
+```
 
 ## Heroku
 O projeto possui também um Procfile do Heroku para o seu deploy bem como possui uma versão no ar. [clique aqui](https://shortyme.herokuapp.com/) para ser redirecionado até o site e aguarde alguns segundos para o Heroku iniciar o projeto, pois caso ele não receba nenhuma requisição ou visita, o mesmo será "desligado" pelo próprio Heroku.
