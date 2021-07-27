@@ -1,5 +1,5 @@
 # short_url
-API encurtadora de URL's. L
+API encurtadora de URL's.
 https://shortyme.herokuapp.com/
 
 #### Observação
