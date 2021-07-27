@@ -1,9 +1,14 @@
 # short_url
-API encurtadora de URL's
+API encurtadora de URL's. L
+https://shortyme.herokuapp.com/
+
+#### Observação
+Ao acessar o link do app o heroku irá retira-lo do seu repouso, por isso aguarde alguns segundos até ele ser iniciado por gentileza.
 
 ## Sumário
 
 - [Motivação](#motivacao)
+- [Documentação](#documentacao)
 - [A API](#a-api)
 - [O Banco de Dados](#o-banco-de-dados)
 - [Instalando Dependências e Executando o Projeto](#instalando-dependencias-e-executando-o-projeto)
@@ -13,6 +18,9 @@ API encurtadora de URL's
 
 ## Motivação
 Com diversos sites para encurtar URL's, como o famoso Bitly, e sua utilização diária em grandes URL's decidi realizar um projeto com a mesma ideia principal, porém de forma diferente. Com meus constantes estudos em framworks web, ORM e API's decidi adaptar a ideia para isso, afim de programar utilizando novas tecnologias.
+
+## Documentação
+Para ler a documentação basta acessar o link do app no inicio do README e clicar "Docs" ou acesse diretamente clicando [aqui](https://shortyme.herokuapp.com/swagger/)
 
 ## A API
 A API foi construída utilizando o web framework Sanic. Ela possui apenas uma rota principal, sendo ela a forma de cadastrar URL's e receber a mesma de forma curta, caso ela já esteja cadastrada o retorno será de um aviso. Acessando a URL encurtada, você será redirecionado ao site da URL original.
@@ -63,7 +71,8 @@ $ docker run -p 8000:8000 short-url
 ```
 
 ## Heroku
-O projeto possui também um Procfile do Heroku para o seu deploy bem como possui uma versão no ar. [clique aqui](https://shortyme.herokuapp.com/) para ser redirecionado até o site e aguarde alguns segundos para o Heroku iniciar o projeto, pois caso ele não receba nenhuma requisição ou visita, o mesmo será "desligado" pelo próprio Heroku.
+O projeto possui também um Procfile do Heroku para o seu deploy bem como possui uma versão no ar([clique aqui](https://shortyme.herokuapp.com/)).
 
 ## A Fazer
 - "Lapidar" a API, melhorando as respostas em JSON
+- Traduzir para o Inglês
